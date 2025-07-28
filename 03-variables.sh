@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PERSON1=trump
+PERSON1=trump   # no space b/w before or after  =
 PERSON2=musk
 
 
