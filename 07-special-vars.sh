@@ -9,3 +9,5 @@ echo "Home directory of user: $HOME"
 echo "PID of the script: $$"
 sleep 10 &
 echo "PID of the last command in background: $!"
+echo "checking Exit code: $?"
+
