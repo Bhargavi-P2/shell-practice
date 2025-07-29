@@ -4,13 +4,13 @@ USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
     echo "Error:: Please run this script with root access"
-    exit 1  # give other than 0 upto 127
+    exit 1  
 else
     echo "You are running with root access"
 fi
 
 VALIDATE(){
-    if [ $1 -eq 0 ]
+    if [ $? -eq 0 ]
     then
         echo "Installing $2L is ... SUCCESS"
     else 
