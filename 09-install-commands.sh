@@ -11,7 +11,7 @@ else
 fi
 dnf list installed mysql
 
-# chcek already installed or not. if installed $? is o, then
+# chcek already installed or not. if installed $? is 0, then
 # If not installed $? is not 0. expression is True
 if [ $? -ne 0 ]
 then
