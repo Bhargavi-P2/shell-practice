@@ -1,0 +1,54 @@
+#!/bin/bash
+USERID=$(id -u)
+
+if [ $USERID -ne 0 ]
+then
+    echo "Error:: Please run this script with root access"
+    exit 1  # give other than 0 upto 127
+else
+    echo "You are running with root access"
+fi
+
+VALIDATE(){
+    if [ $1 -eq 0 ]
+    then
+        echo "Installing $2L is ... SUCCESS"
+    else 
+        echo " Installing $2 is .. FAILURE"
+        exit 1
+    fi 
+}
+dnf list installed mysql
+if [ $? -ne 0 ]
+then
+    echo "MYSQL is not installed... going to install it"
+    dnf install mysql -y
+    VALIDATE $? "MySQl"
+else
+    echo "MYSQL is already installed... Nothing to do"
+    exit 1  
+fi  
+
+dnf list installed  Python3
+if [ $? -ne 0 ]
+then
+    echo "Python3 is not installed... going to install it" 
+
+dnf install Python3 -y
+VALIDATE $? "python3"
+else
+    echo "Python3 is already installed... Nothing to do"
+    exit 1  
+fi  
+
+dnf list installed  nginx
+if [ $? -ne 0 ]
+then
+    echo "nginx is not installed... going to install it" 
+
+dnf install nginx -y
+VALIDATE $? "nginx" 
+else
+    echo "nginx is already installed... Nothing to do"
+    exit 1  
+fi  
