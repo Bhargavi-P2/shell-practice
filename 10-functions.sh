@@ -10,9 +10,9 @@ else
 fi
 
 VALIDATE(){
-    if [ $? -eq 0 ]
+    if [ $1 -eq 0 ]
     then
-        echo "Installing $2L is ... SUCCESS"
+        echo "Installing $2 is ... SUCCESS"
     else 
         echo " Installing $2 is .. FAILURE"
         exit 1
@@ -29,7 +29,7 @@ else
     exit 1  
 fi  
 
-dnf list installed  Python3
+dnf list installed  python3
 if [ $? -ne 0 ]
 then
     echo "Python3 is not installed... going to install it" 
