@@ -17,15 +17,15 @@ then
     echo -e "$R Error:: Please run this script with root access $N"
     exit 1  
 else
-    echo "You are running with root access"&>>$LOG_FILE
+    echo "You are running with root access" &>>$LOG_FILE
 fi
 # Validate function takes input as exit status, what command they tried to install
 VALIDATE(){
     if [ $1 -eq 0 ]
     then
-        echo -e "Installing $2 is ... $G SUCCESS $N"&>>$LOG_FILE
+        echo -e "Installing $2 is ... $G SUCCESS $N" &>>$LOG_FILE
     else 
-        echo -e " Installing $2 is ... $R FAILURE $N"&>>$LOG_FILE
+        echo -e " Installing $2 is ... $R FAILURE $N" &>>$LOG_FILE
         exit 1
     fi 
 }
@@ -33,22 +33,22 @@ VALIDATE(){
 dnf list installed mysql &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
-    echo "MYSQL is not installed... going to install it"&>>$LOG_FILE
+    echo "MYSQL is not installed... going to install it" &>>$LOG_FILE
     dnf install mysql -y
     VALIDATE $? "MySQL"
 else
-    echo -e "Nothing to do MYSQL... $Y already installed $N "&>>$LOG_FILE
+    echo -e "Nothing to do MYSQL... $Y already installed $N" &>>$LOG_FILE
 fi  
 
 dnf list installed  python3 &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
-    echo "Python3 is not installed... going to install it"&>>$LOG_FILE
+    echo "Python3 is not installed... going to install it" &>>$LOG_FILE
 
 dnf install python3 -y
 VALIDATE $? "python3"
 else
-    echo -e "Nothing to do python3... $Y already installed $N "&>>$LOG_FILE
+    echo -e "Nothing to do python3... $Y already installed $N" &>>$LOG_FILE
 fi  
 
 dnf list installed  nginx &>>$LOG_FILE
@@ -58,5 +58,5 @@ then
     dnf install nginx -y
     VALIDATE $? "nginx" 
 else
-    echo -e "Nothing to do nginx... $Y already installed $N "&>>$LOG_FILE
+    echo -e "Nothing to do nginx... $Y already installed $N" &>>$LOG_FILE
 fi
