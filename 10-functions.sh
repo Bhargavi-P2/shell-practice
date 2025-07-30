@@ -51,4 +51,4 @@ VALIDATE $? "nginx"
 else
     echo "nginx is already installed... Nothing to do"
     exit 1  
-fi  
+fi
