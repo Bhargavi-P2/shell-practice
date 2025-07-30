@@ -5,11 +5,11 @@ R="/e[31m"
 G="/e[32m"
 Y="/e[33m"
 N="/e[0m"
-LOGS_FOLDER="/var/logs/shell-practice-logs"
+LOGS_FOLDER="/var/logs/shellscript-logs"
 ScRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
-mksir -p $LOGS_FOLDER
+mkdir -p $LOGS_FOLDER
 echo "Script started executing at: $(date)" &>>$LOG_FILE
 
 if [ $USERID -ne 0 ]
